@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,7 +20,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-table',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [CommonModule, MatTableModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, FormsModule, MatSelectModule, ReactiveFormsModule],
+  imports: [CommonModule, MatTableModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, FormsModule, MatSelectModule, ReactiveFormsModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
@@ -86,4 +87,10 @@ export class TableComponent implements OnInit {
     this.status.reset('')
     this.performer.reset('')
   }
+
+  // deleteTask(id: string) {
+  //   this.store.dispatch(deleteTask(id))
+  // }
 }
+
+

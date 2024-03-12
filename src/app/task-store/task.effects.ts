@@ -38,7 +38,6 @@ export class TasksEffects {
     )
   );
 
-  //delete добавить
 
   constructor(
     private actions$: Actions,
