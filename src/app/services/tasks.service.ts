@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { IData } from '../interfaces/all.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TasksService {
   private localStorageKey = 'tasks';
@@ -16,18 +16,19 @@ export class TasksService {
     return of(tasks);
   }
 
-  addTask(task: IData): Observable<IData[]> {
+  addTask(task: IData): Observable<IData> {
     const storedData = localStorage.getItem(this.localStorageKey);
     const tasks: IData[] = storedData ? JSON.parse(storedData) : [];
     tasks.push(task);
     localStorage.setItem(this.localStorageKey, JSON.stringify(tasks));
-    return of(tasks);
+
+    return of(task);
   }
 
   deleteTask(taskId: string): Observable<IData[]> {
     const storedData = localStorage.getItem(this.localStorageKey);
     let tasks: IData[] = storedData ? JSON.parse(storedData) : [];
-    const index = tasks.findIndex(task => task.id === taskId);
+    const index = tasks.findIndex((task) => task.id === taskId);
 
     if (index !== -1) {
       tasks.splice(index, 1);

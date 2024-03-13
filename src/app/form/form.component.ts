@@ -6,26 +6,77 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import { IData, ISelect } from '../interfaces/all.interface';
+import {
+  IData,
+  ISelect,
+  TaskPriority,
+  TaskStatus,
+} from '../interfaces/all.interface';
 import { MatOptionModule } from '@angular/material/core';
 
 const ELEMENT_DATA: IData[] = [
-  { title: 'title', name: 'Hydrogen', deadline: 12, priority: '1', status: 'H', performer: 'sd' },
-  { title: 'title', name: 'Hydrogen', deadline: 12, priority: '1', status: 'H', performer: 'sd' },
-  { title: 'title', name: 'Hydrogen', deadline: 12, priority: '1', status: 'H', performer: 'sd' },
-  { title: 'title', name: 'Hydrogen', deadline: 12, priority: '1', status: 'H', performer: 'sd' }
+  {
+    id: '1',
+    title: 'title',
+    name: 'Hydrogen',
+    deadline: new Date(),
+    priority: TaskPriority.High,
+    status: TaskStatus.AccordingToPlan,
+    performer: 'sd',
+  },
+  {
+    id: '2',
+    title: 'title',
+    name: 'Hydrogen',
+    deadline: new Date(),
+    priority: TaskPriority.Medium,
+    status: TaskStatus.AccordingToPlan,
+    performer: 'sd',
+  },
+  {
+    id: '3',
+    title: 'title',
+    name: 'Hydrogen',
+    deadline: new Date(),
+    priority: TaskPriority.Low,
+    status: TaskStatus.AccordingToPlan,
+    performer: 'sd',
+  },
+  {
+    id: '4',
+    title: 'title',
+    name: 'Hydrogen',
+    deadline: new Date(),
+    priority: TaskPriority.None,
+    status: TaskStatus.AccordingToPlan,
+    performer: 'sd',
+  },
 ];
-
 @Component({
   selector: 'app-form',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatTableModule, MatFormFieldModule, MatOptionModule, MatInputModule, MatDatepickerModule, FormsModule, MatSelectModule],
+  imports: [
+    MatTableModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatInputModule,
+    MatDatepickerModule,
+    FormsModule,
+    MatSelectModule,
+  ],
   templateUrl: './form.component.html',
-  styleUrl: './form.component.scss'
+  styleUrl: './form.component.scss',
 })
 export class FormComponent {
-  displayedColumns: string[] = ['name', 'title', 'deadline', 'priority', 'status', 'performers'];
+  displayedColumns: string[] = [
+    'name',
+    'title',
+    'deadline',
+    'priority',
+    'status',
+    'performers',
+  ];
   dataSource = ELEMENT_DATA;
   formData: any = {};
 
